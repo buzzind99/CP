@@ -26,6 +26,6 @@ func main() {
 
 /*
   Link: https://codeforces.com/problemset/problem/281/A
-  Tags: implementation
+  Tags: implementation, strings
   Rating: 800
 */
