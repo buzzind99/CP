@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"math"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -25,10 +24,9 @@ func nextInt() int {
 func main() {
 	sc.Split(bufio.ScanWords)
     
-	m, n := nextInt(), nextInt()
-	sol := math.Floor(float64(m*n)/2.0)
+    m, n := nextInt(), nextInt()
 
-	fmt.Println(sol)
+    fmt.Println((m * n) / 2)
 }
 
 /*
