@@ -44,4 +44,5 @@ func solve() {
 /*
   Link: https://codeforces.com/problemset/problem/71/A
   Tags: strings
+  Rating: 800
 */

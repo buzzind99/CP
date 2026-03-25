@@ -40,4 +40,5 @@ func solve(n int) {
 /*
   Link: https://codeforces.com/problemset/problem/4/A
   Tags: brute force, math
+  Rating: 800
 */

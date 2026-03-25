@@ -47,4 +47,5 @@ func count() int {
 /*
   Link: https://codeforces.com/problemset/problem/231/A
   Tags: brute force, greedy
+  Rating: 800
 */

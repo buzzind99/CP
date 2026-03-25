@@ -41,4 +41,5 @@ func main() {
 /*
   Link: https://codeforces.com/problemset/problem/282/A
   Tags: implementation
+  Rating: 800
 */
