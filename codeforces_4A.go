@@ -1,3 +1,5 @@
+//go:build codeforces_4A
+
 package main
 
 import (
