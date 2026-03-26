@@ -22,6 +22,9 @@ func nextInt() int {
 }
 
 func main() {
+	const maxCapacity int = 100005 
+    buf := make([]byte, maxCapacity)
+    sc.Buffer(buf, maxCapacity)
 	sc.Split(bufio.ScanWords)
 
     n := nextInt()
