@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"slices"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -26,31 +25,18 @@ func main() {
 	sc.Split(bufio.ScanWords)
 
 	n := nextInt()
-	arr := make([]int, n)
+	min, max := 101, -1
+	minIdx, maxIdx := 0, 0
 	for i := range n {
-		arr[i] = nextInt()
+		a := nextInt()
+		if a > max { max, maxIdx = a, i }
+		if a <= min { min, minIdx = a, i }
 	}
 
-	min := slices.Min(arr)
-	max := slices.Max(arr)
-	count := 0
-	for {
-		if arr[0] == max && arr[n-1] == min { break }
-		for i := 0; i < n; i++ {
-			if arr[i] == max && i != 0 {
-				arr[i], arr[i-1] = arr[i-1], arr[i]
-				count++
-				break
-			}
-			if arr[i] == min && i != n-1 {
-				arr[i], arr[i+1] = arr[i+1], arr[i]
-				count++
-				break
-			}
-		}
-	}
+	sol := maxIdx + (n - 1 - minIdx)
+    if maxIdx > minIdx { sol-- }
 
-	fmt.Println(count)
+	fmt.Println(sol)
 }
 
 /*
