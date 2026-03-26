@@ -37,6 +37,6 @@ func main() {
 
 /*
   Link: https://codeforces.com/problemset/problem/996/A
-  Tags: implementation
+  Tags: dp, greedy
   Rating: 800
 */
