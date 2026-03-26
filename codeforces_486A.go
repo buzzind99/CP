@@ -16,16 +16,16 @@ func next() string {
 	return sc.Text()
 }
 
-func nextInt() int {
-	i, _ := strconv.Atoi(next())
-	return i
+func nextInt64() int64 {
+    i, _ := strconv.ParseInt(next(), 10, 64)
+    return i
 }
 
 func main() {
 	sc.Split(bufio.ScanWords)
     
-	n := nextInt()
-	res := 0
+	n := nextInt64()
+	var res int64
 	if n%2 != 0 { res = -(n+1)/2 } else { res = n/2 }
 
 	fmt.Println(res)
