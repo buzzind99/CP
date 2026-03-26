@@ -20,8 +20,8 @@ func main() {
 
 	s := next()
 	count := 0
-	for _, char := range s {
-		if char == '4' || char == '7' { count++ }
+	for i := 0; i < len(s); i++ {
+		if s[i] == '4' || s[i] == '7' { count++ }
 	}
 
 	if count == 4 || count == 7 {
