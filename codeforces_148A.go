@@ -30,19 +30,18 @@ func main() {
 		return
 	}
 
-	arr := []int{k, l, m, n}
-	set := make(map[int]struct{})
-	for _, v := range arr {
-		i := 1
-		for {
-			tmp := i*v
-			if tmp > d { break }
-			set[tmp] = struct{}{}
-			i++
+	damaged := make([]bool, d+1)
+	count := 0
+	for _, v := range []int{k, l, m, n} {
+		for i := v; i <= d; i += v {
+			if !damaged[i] {
+				damaged[i] = true
+				count++
+			}
 		}
 	}
 
-	fmt.Println(len(set))
+	fmt.Println(count)
 }
 
 /*
