@@ -27,15 +27,7 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		if n <= 2 {
-			fmt.Println(0)
-			continue
-		}
-		if n%2 == 0 {
-			fmt.Println((n/2)-1)
-		} else {
-			fmt.Println(n/2)
-		}
+		fmt.Println((n-1)/2)
 	}
 }
 
