@@ -38,6 +38,6 @@ func main() {
 
 /*
   Link: https://codeforces.com/problemset/problem/1703/A
-  Tags: implementation
+  Tags: brute force, implementation, strings
   Rating: 800
 */
