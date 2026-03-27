@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"math"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -26,36 +25,25 @@ func main() {
 	sc.Split(bufio.ScanWords)
 
 	t := nextInt()
-	num := make([]int, t)
-	ans := make([][]int, t)
-	for i := range t {
-		n := nextInt()
-		count := 0
-		digit := 0.0
-		var sol []int
-		for n > 0 {
-			mod := n%10
-			if mod != 0 {
-				sol = append(sol, mod*int(math.Pow(10.0, digit)))
-				n -= mod
-				count++
-			} else {
-				n /= 10
-				digit++
-			}
-		}
-		num[i], ans[i] = count, sol
-	}
+	for range t {
+        n := nextInt()
+        var sol []int
+        multiplier := 1
+        for n > 0 {
+            remainder := n%10
+            if remainder > 0 {
+                sol = append(sol, remainder * multiplier)
+            }
+            n /= 10
+            multiplier *= 10
+        }
 
-	for i := range t {
-		fmt.Println(num[i])
-		for j := range len(ans[i]) {
-			fmt.Printf("%d ", ans[i][j])
-			if j == len(ans[i])-1 {
-				fmt.Println()
-			}
-		}
-	}
+        fmt.Println(len(sol))
+        for i, v := range sol {
+            fmt.Printf("%d ", v)
+            if i == len(sol)-1 { fmt.Println() }
+        }
+    }
 }
 
 /*
