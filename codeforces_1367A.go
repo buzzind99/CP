@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-    "strings"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -28,15 +27,11 @@ func main() {
 	t := nextInt()
 	for range t {
         s := next()
-        var ans []string
-        for i := 0; i < len(s)-1; i += 2 {
-            if i == 0 {
-                ans = append(ans, s[0:2])
-            } else {
-                ans = append(ans, string(s[i+1]))
-            }
+        res := []byte{s[0],s[1]}
+        for i := 3; i < len(s); i += 2 {
+            res = append(res, s[i])
         }
-        fmt.Println(strings.Join(ans, ""))
+        fmt.Println(string(res))
     }
 }
 
