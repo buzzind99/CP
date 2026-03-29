@@ -26,13 +26,14 @@ func main() {
 
 	t := nextInt()
     for range t {
-        m := make(map[byte]bool)
+        m := make([]bool, 26)
         n := nextInt()
         s := next()
         sum := 0
         for i := range n {
-            if !m[s[i]] {
-                m[s[i]] = true
+            idx := s[i]-'A'
+            if !m[idx] {
+                m[idx] = true
                 sum += 2
             } else {
                 sum++
