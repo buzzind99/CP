@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"slices"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -26,19 +25,12 @@ func main() {
 	sc.Split(bufio.ScanWords)
 
 	n, k := nextInt(), nextInt()
-	arr := make([]int, n)
-	for i := range n {
-		arr[i] = nextInt()
-	}
+	eligible := 0
+    for range n {
+        if 5 - nextInt() >= k { eligible++ }
+    }
 
-	slices.Sort(arr)
-	maxTeam := n/3
-	count := 0
-	for i := range maxTeam {
-		if arr[(i+1)*3-1]+k <= 5 { count++ }
-	}
-
-	fmt.Println(count)
+    fmt.Println(eligible/3)
 }
 
 /*
