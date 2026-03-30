@@ -43,6 +43,6 @@ func main() {
 
 /*
   Link: https://codeforces.com/problemset/problem/1926/A
-  Tags: constructive algorithms, greedy, implementation, strings
+  Tags: implementation
   Rating: 800
 */
