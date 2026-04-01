@@ -33,4 +33,5 @@ func main() {
   Link: https://codeforces.com/problemset/problem/2214/A
   Tags: april fools
   Rating: -
+  Contest: April Fools Day Contest 2026
 */
