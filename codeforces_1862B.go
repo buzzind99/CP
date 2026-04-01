@@ -24,6 +24,7 @@ func nextInt() int {
 
 func main() {
 	sc.Split(bufio.ScanWords)
+	defer wr.Flush()
 
 	t := nextInt()
 	for range t {
@@ -47,8 +48,6 @@ func main() {
 		}
 		fmt.Fprintln(wr)
 	}
-
-	defer wr.Flush()
 }
 
 /*
