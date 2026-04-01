@@ -24,17 +24,17 @@ func nextInt() int {
 
 func main() {
 	sc.Split(bufio.ScanWords)
+	defer wr.Flush()
 
 	t := nextInt()
 	for range t {
 		x, k := nextInt(), nextInt()
 		sol := []int{}
-		for i := x; x > 0; i-- {
-			if i%k != 0 {
-				x -= i
-				sol = append(sol, i)
-				i = x+1
-			}
+		for x > 0 {
+			i := x
+			for i%k == 0 { i-- }
+			sol = append(sol, i)
+			x -= i
 		}
 		num := len(sol)
 		fmt.Fprintln(wr, num)
@@ -43,8 +43,6 @@ func main() {
 		}
 		fmt.Fprintln(wr)
 	}
-
-	defer wr.Flush()
 }
 
 /*
