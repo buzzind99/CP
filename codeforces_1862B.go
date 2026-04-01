@@ -10,6 +10,7 @@ import (
 )
 
 var sc = bufio.NewScanner(os.Stdin)
+var wr = bufio.NewWriter(os.Stdout)
 
 func next() string {
 	sc.Scan()
@@ -28,7 +29,7 @@ func main() {
 	for range t {
 		n := nextInt()
 		prev := 0
-		sol := []int{}
+		sol := make([]int, 0, 2*n)
 		for range n {
 			a := nextInt()
 			if a >= prev {
@@ -40,12 +41,14 @@ func main() {
 			prev = a
 		}
 		num := len(sol)
-		fmt.Println(num)
+		fmt.Fprintln(wr, num)
 		for _, v := range sol {
-			fmt.Print(v, " ")
+			fmt.Fprint(wr, v, " ")
 		}
-		fmt.Println()
+		fmt.Fprintln(wr)
 	}
+
+	defer wr.Flush()
 }
 
 /*
