@@ -22,16 +22,6 @@ func nextInt() int {
 	return i
 }
 
-func gcd(a int, b int) int {
-	for b != 0 { a, b = b, a%b }
-	return a
-}
-
-func lcm(a, b int) int {
-	if a == 0 || b == 0 { return 0 }
-	return (a/gcd(a, b))*b
-}
-
 func main() {
 	sc.Split(bufio.ScanWords)
 	defer wr.Flush()
