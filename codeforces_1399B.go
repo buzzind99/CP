@@ -41,24 +41,7 @@ func main() {
 		targetCandies, targetOranges := slices.Min(candies), slices.Min(oranges)
 		sum := 0
 		for i := range n {
-			candiesOps := candies[i]-targetCandies
-			orangesOps := oranges[i]-targetOranges
-			if candiesOps > 0 && orangesOps > 0 {
-				ops := min(candiesOps, orangesOps)
-				sum += ops
-				candies[i] -= ops
-				oranges[i] -= ops
-			}
-			if candies[i] > targetCandies {
-				ops := candies[i]-targetCandies
-				sum += ops
-				candies[i] -= ops
-			}
-			if oranges[i] > targetOranges {
-				ops := oranges[i]-targetOranges
-				sum += ops
-				oranges[i] -= ops
-			}
+			sum += max(candies[i]-targetCandies, oranges[i]-targetOranges)
 		}
 
 		fmt.Fprintln(wr, sum)
