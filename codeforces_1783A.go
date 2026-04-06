@@ -34,18 +34,16 @@ func main() {
 		for range n {
 			arr = append(arr, nextInt())
 		}
-		slices.Reverse(arr)
+		slices.Sort(arr)
 
-		if slices.Max(arr) == slices.Min(arr) {
+		if arr[0] == arr[n-1] {
 			fmt.Fprintln(wr, "NO")
 			continue
 		}
-		if arr[0] == arr[1] {
-			arr[1], arr[n-1] = arr[n-1], arr[1]
-		}
 		fmt.Fprintln(wr, "YES")
-		for _, v := range arr {
-			fmt.Fprint(wr, v, " ")
+		fmt.Fprint(wr, arr[n-1], " ")
+		for i := range n - 1 {
+			fmt.Fprint(wr, arr[i], " ")
 		}
 		fmt.Fprintln(wr)
 	}
