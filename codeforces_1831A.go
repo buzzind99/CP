@@ -29,20 +29,9 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		arr := make([]int, 0, n)
-		sorted := make([]int, 0, n)
-		for i := range n {
+		for range n {
 			a := nextInt()
-			arr = append(arr, a)
-			sorted = append(sorted, i+1)
-		}
-
-		ans := make([]int, n)
-		for i, v := range arr {
-			ans[i] = sorted[n-v]
-		}
-		for _, v := range ans {
-			fmt.Fprint(wr, v, " ")
+			fmt.Fprint(wr, (n + 1) - a, " ")
 		}
 		fmt.Fprintln(wr)
 	}
