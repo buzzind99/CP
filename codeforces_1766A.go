@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"strings"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -45,8 +44,8 @@ func main() {
 		count := 0
 		for i := 1; i <= n; {
 			s := strconv.Itoa(i)
-			if len(s)-strings.Count(s, "0") == 1 { count++ }
 			i += powInt(10, len(s)-1)
+			count++
 		}
 
 		fmt.Fprintln(wr, count)
