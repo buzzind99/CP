@@ -22,33 +22,18 @@ func nextInt() int {
 	return i
 }
 
-func powInt(base, exp int) int {
-	result := 1
-	for exp > 0 {
-		if exp&1 == 1 {
-			result *= base
-		}
-		base *= base
-		exp >>= 1
-	}
-	return result
-}
-
 func main() {
 	sc.Split(bufio.ScanWords)
 	defer wr.Flush()
 
 	t := nextInt()
 	for range t {
-		n := nextInt()
-		count := 0
-		for i := 1; i <= n; {
-			s := strconv.Itoa(i)
-			i += powInt(10, len(s)-1)
-			count++
-		}
-
-		fmt.Fprintln(wr, count)
+		s := next()
+		nDigits := len(s)
+		firstDigit, _ := strconv.Atoi(string(s[0]))
+		ans := (nDigits-1)*9 + firstDigit
+		
+		fmt.Fprintln(wr, ans)
 	}
 }
 
