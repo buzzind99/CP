@@ -29,22 +29,16 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		colCount := 1
-		left := true
-		for range 2*n {
-			rowCount := 1
-			dot := !left
-			for range 2*n {
-				if !dot {
-					fmt.Fprint(wr, "#")
-					if rowCount == 2 { rowCount = 1; dot = !dot } else { rowCount++ }
+		for i := range 2*n {
+			row := make([]byte, 2*n)
+			for j := range 2*n {
+				if (i/2+j/2)%2 == 0 {
+					row[j] = '#'
 				} else {
-					fmt.Fprint(wr, ".")
-					if rowCount == 2 { rowCount = 1; dot = !dot } else { rowCount++ }
+					row[j] = '.'
 				}
 			}
-			if colCount == 2 { colCount = 1; left = !left } else { colCount++ }
-			fmt.Fprintln(wr)
+			fmt.Fprintf(wr, "%s\n", row)
 		}
 	}
 }
