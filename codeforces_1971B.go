@@ -28,27 +28,22 @@ func main() {
 
 	t := nextInt()
 	for range t {
-		s := []rune(next())
-		unique := true
-		prev := s[0]
+		s := []byte(next())
+		swapped := false
 		for i := 1; i < len(s); i++ {
-			if s[i] != prev { unique = false }
-			prev = s[i]
+			if s[i] != s[0] {
+				s[i], s[0] = s[0], s[i]
+				swapped = true
+				break
+			}
 		}
 
-		if unique {
+		if !swapped {
 			fmt.Fprintln(wr, "NO")
-			continue
+		} else {
+			fmt.Fprintln(wr, "YES")
+			fmt.Fprintln(wr, string(s))
 		}
-
-		prev = s[0]
-		for i := 1; i < len(s); i++ {
-			if s[i] != prev { s[i], s[i-1] = s[i-1], s[i]; break }
-			prev = s[i]
-		}
-
-		fmt.Fprintln(wr, "YES")
-		fmt.Fprintln(wr, string(s))
 	}
 }
 
