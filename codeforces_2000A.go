@@ -30,14 +30,10 @@ func main() {
 	for range t {
 		a := next()
 
-		if a[:2] != "10" {
-			fmt.Fprintln(wr, "NO")
+		if a[:2] == "10" && a[2] != '0' {
+			fmt.Fprintln(wr, "YES")
 		} else {
-			if a[2] == '0' {
-				fmt.Fprintln(wr, "NO")
-			} else {
-				fmt.Fprintln(wr, "YES")
-			}
+			fmt.Fprintln(wr, "NO")
 		}
 	}
 }
