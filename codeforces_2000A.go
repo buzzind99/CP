@@ -30,8 +30,13 @@ func main() {
 	for range t {
 		a := next()
 
-		if a[:2] == "10" && a[2] != '0' {
-			fmt.Fprintln(wr, "YES")
+		if len(a) >= 3 && a[:2] == "10" && a[2] != '0' {
+			val, _ := strconv.Atoi(a[2:])
+			if val >= 2 {
+				fmt.Fprintln(wr, "YES")
+			} else {
+				fmt.Fprintln(wr, "NO")
+			}
 		} else {
 			fmt.Fprintln(wr, "NO")
 		}
