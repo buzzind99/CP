@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"slices"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -31,18 +30,23 @@ func main() {
 	for range t {
 		n := nextInt()
 		arr := make([]int, 0, n)
+		largest, secondLargest := -1, -1
 		for range n {
-			arr = append(arr, nextInt())
-		}
-		
-		sorted := slices.Clone(arr)
-		slices.Sort(sorted)
-		largestIdx, secondLargestIdx := len(arr)-1, len(arr)-2
-		for _, v := range arr {
-			if v == sorted[largestIdx] {
-				fmt.Fprint(wr, v-sorted[secondLargestIdx], " ")
+			x := nextInt()
+			arr = append(arr, x)
+			if x > largest {
+				secondLargest = largest
+				largest = x
 			} else {
-				fmt.Fprint(wr, v-sorted[largestIdx], " ")
+				secondLargest = max(secondLargest, x)
+			}
+		}
+
+		for _, v := range arr {
+			if v == largest {
+				fmt.Fprint(wr, v-secondLargest, " ")
+			} else {
+				fmt.Fprint(wr, v-largest, " ")
 			}
 		}
 		fmt.Fprintln(wr)
