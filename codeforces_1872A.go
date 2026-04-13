@@ -34,25 +34,10 @@ func main() {
 	t := nextInt()
 	for range t {
 		a, b, c := nextInt(), nextInt(), nextInt()
-		if a == b {
-			fmt.Fprintln(wr, 0)
-		} else {
-			r := abs(b-a)
-			count := 0
-			for r > 2*c {
-				if a < b {
-					a += c
-					b -= c
-				} else {
-					a -= c
-					b += c
-				}
-				count++
-				r = abs(b-a)
-			}
-	
-			fmt.Fprintln(wr, count+1)
-		}
+		diff := abs(a - b)
+		sol := (diff+(2*c-1))/(2*c)
+
+		fmt.Fprintln(wr, sol)
 	}
 }
 
