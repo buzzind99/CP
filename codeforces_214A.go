@@ -28,16 +28,9 @@ func main() {
 
 	n, m := nextInt(), nextInt()
 	count := 0
-	for i := 0;; {
-		for j := 0;; {
-			if i*i+j == n && i+j*j == m {
-				count++
-			}
-			if i+j > m || i+j > n { break }
-			j++
-		}
-		if i+1 > m || i+1 > n { break }
-		i++
+	for a := 0; a*a <= n; a++ {
+		b := n - a*a
+		if a + b*b == m { count++ }
 	}
 
 	fmt.Fprintln(wr, count)
