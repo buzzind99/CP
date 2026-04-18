@@ -38,19 +38,11 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		pos := 0
-		for i := 1; abs(pos) <= n; i++ {
-			if isEven(i) {
-				pos += 2*i-1
-			} else {
-				pos -= 2*i-1
-			}
-		}
 
-		if pos > 0 {
-			fmt.Fprintln(wr, "Kosuke")
-		} else {
+		if n % 2 == 0 {
 			fmt.Fprintln(wr, "Sakurako")
+		} else {
+			fmt.Fprintln(wr, "Kosuke")
 		}
 	}
 }
