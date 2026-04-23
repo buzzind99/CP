@@ -33,7 +33,7 @@ func main() {
 		total := a+b+c
 		nDiv := n/total
 		sum := nDiv*total
-		remainder, count := n-sum, nDiv*3 
+		remainder, count := n-sum, nDiv*3
 		if remainder > 0 {
 			for i := 0; sum < n; i++ {
 				sum += arr[i%3]
