@@ -7,8 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"slices"
-	"strings"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -31,16 +29,16 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		answer := []string{}
+		arr := make([]bool, n+1)
 		for range 2*n {
 			a := nextInt()
-
-			if (!slices.Contains(answer, strconv.Itoa(a)) && len(answer) < n) {
-				answer = append(answer, strconv.Itoa(a))
+			if !arr[a] {
+				fmt.Fprint(wr, a, " ")
+				arr[a] = true
 			}
 		}
 
-		fmt.Fprintln(wr, strings.Join(answer, " "))
+		fmt.Fprintln(wr)
 	}
 }
 
