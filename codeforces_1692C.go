@@ -22,10 +22,6 @@ func nextInt() int {
 	return i
 }
 
-func isEven(n int) bool {
-	return n%2 == 0
-}
-
 func main() {
 	sc.Split(bufio.ScanWords)
 	defer wr.Flush()
