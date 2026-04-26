@@ -29,7 +29,7 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		m := make(map[int]struct{})
+		m := make(map[int]struct{}, n)
 		for range n {
 			a := nextInt()
 			m[a] = struct{}{}
