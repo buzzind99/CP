@@ -29,17 +29,15 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		a, b := make([]int, 0, n), make([]int, 0, n)
+		a := make([]int, 0, n)
 		for range n {
 			a = append(a, nextInt())
-		}
-		for range n {
-			b = append(b, nextInt())
 		}
 
 		ops := 1
 		for i := range a {
-			if a[i] > b[i] { ops += a[i]-b[i] }
+			bVal := nextInt()
+			if a[i] > bVal { ops += a[i]-bVal }
 		}
 
 		fmt.Fprintln(wr, ops)
