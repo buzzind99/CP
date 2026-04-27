@@ -54,6 +54,6 @@ func main() {
 
 /*
   Link: https://codeforces.com/problemset/problem/1980/B
-  Tags: implementation
+  Tags: sortings
   Rating: 800
 */
