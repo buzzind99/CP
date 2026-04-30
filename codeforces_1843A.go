@@ -38,10 +38,8 @@ func main() {
 		slices.Sort(arr)
 
 		sum := 0
-		if n > 1 {
-			for i := range n/2 {
-				sum += arr[n-1-i]-arr[i]
-			}
+		for i := range n/2 {
+			sum += arr[n-1-i]-arr[i]
 		}
 
 		fmt.Fprintln(wr, sum)
