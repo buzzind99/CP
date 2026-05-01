@@ -29,12 +29,8 @@ func main() {
 	t := nextInt()
 	for range t {
 		a, b, c, dogs, cats := nextInt(), nextInt(), nextInt(), nextInt(), nextInt()
-		availableDogFood := min(dogs, a)
-		availableCatFood := min(cats, b)
-		missingDogFood := dogs-availableDogFood
-		missingCatFood := cats-availableCatFood
 		
-		if missingDogFood+missingCatFood > c {
+		if max(0, dogs-a)+max(0, cats-b) > c {
 			fmt.Fprintln(wr, "NO")
 		} else {
 			fmt.Fprintln(wr, "YES")
