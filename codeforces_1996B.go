@@ -4,7 +4,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	"strconv"
 )
@@ -34,9 +33,9 @@ func main() {
 			s := next()
 			if count%k == 0 {
 				for i := 0; i < n; i += k {
-					fmt.Fprint(wr, string(s[i]))
+					wr.WriteByte(s[i])
 				}
-				fmt.Fprintln(wr)
+				wr.WriteByte('\n')
 			}
 			count++
 		}
