@@ -29,13 +29,17 @@ func main() {
 	t := nextInt()
 	for range t {
 		n, s := nextInt(), next()
-		m := make(map[string]struct{})
-		for i := range n-1 {
-			notes := s[i:i+2]
-			m[notes] = struct{}{}
+		exists := [7][7]bool{}
+		count := 0
+		for i := 0; i < n-1; i++ {
+			u, v := s[i]-'a', s[i+1]-'a'
+			if !exists[u][v] {
+				exists[u][v] = true
+				count++
+			}
 		}
 
-		fmt.Fprintln(wr, len(m))
+		fmt.Fprintln(wr, count)
 	}
 }
 
