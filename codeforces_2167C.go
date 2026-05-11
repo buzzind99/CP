@@ -44,13 +44,10 @@ func main() {
 
 		if even != 0 && odd != 0 {
 			slices.Sort(arr)
-			for _, v := range arr {
-				fmt.Fprint(wr, v, " ")
-			}
-		} else {
-			for _, v := range arr {
-				fmt.Fprint(wr, v, " ")
-			}
+		}
+
+		for _, v := range arr {
+			fmt.Fprint(wr, v, " ")
 		}
 		fmt.Fprintln(wr)
 	}
