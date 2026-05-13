@@ -34,20 +34,9 @@ func main() {
 	for range t {
 		n, s := nextInt(), next()
 		count := 0
-		for i := 0; i < n; {
-			curr, next, nextNext := s[i], byte('.'), byte('.')
-			if i+1 <= n-1 { next = s[i+1] }
-			if i+2 <= n-1 { nextNext = s[i+2] }
-			if curr == '@' { count++ }
-			if next == '.' || next == '@' {
-				i++
-				continue
-			} else if nextNext == '.' || nextNext == '@' {
-				i += 2
-				continue
-			} else {
-				break
-			}
+		for i := 0; i < n; i++ {
+			if i > 0 && s[i] == '*' && s[i-1] == '*' { break }
+			if s[i] == '@' { count++ }
 		}
 
 		fmt.Fprintln(wr, count)
