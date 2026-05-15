@@ -29,13 +29,13 @@ func main() {
 	t := nextInt()
 	for range t {
 		n, s := nextInt(), next()
-		set := make(map[byte]int)
+		arr := [4]int{}
 		for i := range s {
-			if s[i] != '?' { set[s[i]]++ }
+			if s[i] != '?' { arr[int(s[i]-'A')]++ }
 		}
 
 		sum := 0
-		for _, v := range set {
+		for _, v := range arr {
 			inc := v
 			if inc > n { inc = n }
 			sum += inc
