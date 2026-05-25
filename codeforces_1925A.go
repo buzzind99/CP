@@ -4,9 +4,7 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"os"
-	"slices"
 	"strconv"
 )
 
@@ -30,19 +28,12 @@ func main() {
 	t := nextInt()
 	for range t {
 		n, k := nextInt(), nextInt()
-		chars := make([]byte, 0, k)
-		for i := range k {
-			chars = append(chars, byte(int('a')+i))
+		for range n {
+			for i := range k {
+				wr.WriteByte(byte('a'+i))
+			}
 		}
-		str := string(chars)
-		slices.Reverse(chars)
-		reversed := string(chars)
-		ans := str
-		for i := range n-1 {
-			if i%2 == 0 { ans += reversed } else { ans += str }
-		}
-
-		fmt.Fprintln(wr, ans)
+		wr.WriteByte('\n')
 	}
 }
 
