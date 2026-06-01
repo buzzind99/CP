@@ -37,12 +37,12 @@ func main() {
 		}
 		slices.Sort(arr)
 
-		minDiff := -1
+		maxDiff := -1
 		for i := 0; i < n-1; i += 2 {
-			minDiff = max(minDiff, arr[i+1]-arr[i])
+			maxDiff = max(maxDiff, arr[i+1]-arr[i])
 		}
 
-		fmt.Fprintln(wr, minDiff)
+		fmt.Fprintln(wr, maxDiff)
 	}
 }
 
