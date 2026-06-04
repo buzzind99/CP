@@ -52,7 +52,7 @@ func main() {
 }
 
 /*
-  Link: https://codeforces.com/problemset/problem/1933/A
+  Link: https://codeforces.com/problemset/problem/1968/A
   Tags: brute force, math, number theory
   Rating: 800
 */
