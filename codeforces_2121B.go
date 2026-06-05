@@ -23,6 +23,7 @@ func nextInt() int {
 }
 
 func main() {
+	sc.Buffer(make([]byte, 1<<20), 1<<20)
 	sc.Split(bufio.ScanWords)
 	defer wr.Flush()
 
