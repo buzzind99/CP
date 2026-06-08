@@ -29,21 +29,21 @@ func main() {
 	t := nextInt()
 	for range t {
 		n := nextInt()
-		m := make(map[int]int)
-		maxIdx := -1
+		arr := make([]int, n)
 		for i := range n {
-			a := nextInt()
-			_, exists := m[a]
-			if !exists {
-				m[a] = i
-			} else {
-				maxIdx = max(maxIdx, m[a])
-				m[a] = i
-			}
+			arr[i] = nextInt()
 		}
 
+		seen := make([]bool, n+1)
 		ans := 0
-		if maxIdx >= 0 { ans = maxIdx+1 }
+		for i := n - 1; i >= 0; i-- {
+			val := arr[i]
+			if seen[val] {
+				ans = i + 1
+				break
+			}
+			seen[val] = true
+		}
 
 		fmt.Fprintln(wr, ans)
 	}
