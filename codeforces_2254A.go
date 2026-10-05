@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"os"
 	"strconv"
-	"slices"
 )
 
 var sc = bufio.NewScanner(os.Stdin)
@@ -30,10 +29,10 @@ func main() {
 	t := nextInt()
 	for range t {
 		a, b, c := nextInt(), nextInt(), nextInt()
-		arr := []int{a,b,c}
-		slices.Sort(arr)
+		mx, mn := max(a, b, c), min(a, b, c)
+		mid := a + b + c - mx - mn
 
-		fmt.Fprintln(wr, min(arr[2]-arr[1], arr[1]-arr[0]))
+		fmt.Fprintln(wr, min(mid-mn, mx-mid))
 	}
 }
 
