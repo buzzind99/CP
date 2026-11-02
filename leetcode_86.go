@@ -6,35 +6,22 @@
  * }
  */
 func partition(head *ListNode, x int) *ListNode {
-	if head == nil {
-		return head
-	}
+	lessDummy := &ListNode{}
+	greaterDummy := &ListNode{}
+	less, greater := lessDummy, greaterDummy
 
-	anchor := &ListNode{Next: head}
-	prev := anchor
-	lastAnchor := 0
-	pos := 1
-	curr := head
-	for curr != nil {
+	for curr := head; curr != nil; {
 		if curr.Val < x {
-			if pos < x && head.Val < x && lastAnchor == pos-1 {
-				anchor = curr
-				lastAnchor++
-			} else {
-				prev.Next = curr.Next
-				curr.Next = anchor.Next
-				if anchor.Next == head {
-					head = curr
-				}
-				anchor.Next = curr
-				anchor = curr
-				lastAnchor++
-			}
+			less.Next = curr
+			less = less.Next
+		} else {
+			greater.Next = curr
+			greater = greater.Next
 		}
-		prev = curr
 		curr = curr.Next
-		pos++
 	}
+	greater.Next = nil
+	less.Next = greaterDummy.Next
 
-	return head
+	return lessDummy.Next
 }
