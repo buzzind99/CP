@@ -1,0 +1,34 @@
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func rotateRight(head *ListNode, k int) *ListNode {
+	if head == nil || head.Next == nil || k == 0 {
+		return head
+	}
+
+	n := 1
+	tail := head
+	for tail.Next != nil {
+		tail = tail.Next
+		n++
+	}
+
+	k %= n
+	if k == 0 {
+		return head
+	}
+	tail.Next = head
+
+	newTail := head
+	for range n - k - 1 {
+		newTail = newTail.Next
+	}
+	newHead := newTail.Next
+	newTail.Next = nil
+
+	return newHead
+}
