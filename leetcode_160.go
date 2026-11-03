@@ -6,19 +6,19 @@
  * }
  */
 func getIntersectionNode(headA, headB *ListNode) *ListNode {
-	seen := make(map[*ListNode]struct{})
-	curr := headA
-	for curr != nil {
-		seen[curr] = struct{}{}
-		curr = curr.Next
-	}
-	intersect := headB
-	for intersect != nil {
-		if _, exists := seen[intersect]; exists {
-			return intersect
+	a, b := headA, headB
+	for a != b {
+		if a == nil {
+			a = headB
+		} else {
+			a = a.Next
 		}
-		intersect = intersect.Next
+		if b == nil {
+			b = headA
+		} else {
+			b = b.Next
+		}
 	}
 
-	return nil
+	return a
 }
